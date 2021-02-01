@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26">
+  <Document name="jira-searcher.ZPM">
+    <Module>
+      <Name>jira-searcher</Name>
+      <Version>0.1.0</Version>
+      <Packaging>module</Packaging>
+      <SourcesRoot>src</SourcesRoot>
+      <Resource Directory="cls" Name="JIRA.PKG" />
+      <CSPApplication
+        Path="/jira/fwd"
+        Url="/jira/fwd"
+        CookiePath="/jira/fwd/"
+        UnauthenticatedEnabled="1"
+        DispatchClass="JIRA.Forwarder"
+       />
+      <CSPApplication
+        Url="/jira/web"
+        SourcePath="/src/web"
+        CookiePath="/jira/web/"
+        DeployPath="${cspdir}/jira/"
+        UnauthenticatedEnabled="1"
+        ServeFiles="1"
+        Recurse="1"
+       />
+    </Module>
+  </Document>
+</Export>
