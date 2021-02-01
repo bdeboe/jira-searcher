@@ -12,7 +12,7 @@ $.ajax(getRESTEndpoint()+'/settings')
 
         settings = response;
         $("#modal-cfg").modal("show");
-        
+
         $("#cfg-server").val(settings.jiraServer ? settings.jiraServer : "https://usjira.iscinternal.com");
         $("#cfg-user").val(settings.jiraUser);
 
@@ -32,6 +32,12 @@ $.ajax(getRESTEndpoint()+'/settings')
             }
         }
     });
+
+$("#cfg-pwd").keypress(function(event) {
+    if ( event.which == 13 ) {
+        doConfig();
+    }
+});
 
 function doConfig() {
     settings.jiraServer = $("#cfg-server").val();
