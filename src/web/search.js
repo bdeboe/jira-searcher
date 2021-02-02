@@ -124,7 +124,7 @@ $('.auto-select').autoComplete({
 });
 
 $(".jira-search-select").on("autocomplete.select", function(evt, item) {
-    search[evt.target.id.substr(5)] = item.id;
+    search[evt.target.id.substr(5)] = item ? item.id : '';
 });
 
 $(".jira-search-text").change(function() {
