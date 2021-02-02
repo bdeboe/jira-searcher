@@ -22,6 +22,7 @@ $.ajax(getRESTEndpoint()+'/settings')
             // and apply
             console.log("restoring previous search:", search);
             for (field in search) {
+                if (search[field]=="") continue;
                 el = $("#jira-"+field);
                 if (el.hasClass("auto-select")) {
                     el.autoComplete("set", { "id": search[field], "text": search[field] } );
@@ -56,6 +57,10 @@ function doSearch() {
         if (search[field]=="") continue;
         if (jql != "") jql += " AND ";
         switch (field) {
+            case 'created':
+            case 'updated':
+                jql += search[field];
+                break;
             case 'text':
                 jql += field + " ~ " + quote(search[field]);
                 break;
