@@ -41,15 +41,7 @@
         </div>
 
         <h1>DevLog 4.0</h1>
-    <form>
-            <div class="form-group">
-                <label for="jira-issuetype">Type</label>
-                <select class="form-control jira-search-text" id="jira-issuetype">
-                    <option selected="selected">Dev Task</option>
-                    <option>Bug</option>
-                    <option>Feature</option>
-                </select>
-            </div>
+        <form>
             <div class="form-group">
                 <label for="jira-text">Text search</label>
                 <input type="text" class="form-control jira-search-text" id="jira-text"
@@ -57,13 +49,28 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
+                    <label for="jira-issuetype">Type</label>
+                    <select class="form-control jira-search-text" id="jira-issuetype">
+                        <option selected="selected">Dev Task</option>
+                        <option>Bug</option>
+                        <option>Feature</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
                     <label for="jira-component">Component</label>
                     <select class="form-control auto-select jira-search-select" id="jira-component"
                         placeholder="type to search..." autocomplete="off"></select>
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="jira-reporter">Developer</label>
                     <select class="form-control auto-select jira-search-select" id="jira-reporter"
+                        placeholder="type to search..." autocomplete="off"></select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="jira-assignee">Assignee</label>
+                    <select class="form-control auto-select jira-search-select" id="jira-assignee"
                         placeholder="type to search..." autocomplete="off"></select>
                 </div>
             </div>

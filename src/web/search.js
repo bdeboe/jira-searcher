@@ -1,4 +1,3 @@
-//doClear();
 
 function getRESTEndpoint() {
     return window.location.origin + '/jira/fwd';
@@ -65,10 +64,10 @@ function doSearch() {
                 break;
         }
     }
-    jql += "ORDER BY updated DESC"
-    console.log("JQL: "+jql);
+    jql += " ORDER BY updated DESC"
+    console.log("JQL sent to server: "+jql);
     
-    window.open(settings.jiraServer+"/issues/?jql="+encodeURIComponent(jql), "_blank");
+    window.open(settings.jiraServer+"/issues/?jql="+encodeURIComponent(jql), "jira");
 
     settings.lastSearch = search;
     saveSettings();
