@@ -6,10 +6,26 @@ Because of CORS restrictions, direct access to the JIRA REST API from the browse
 
 ## Installation
 
+First download the repository contents:
+
+```
+git clone git@github.com:bdeboe/jira-searcher.git
+```
+
 ### With ZPM
 
+Run the following command from your IRIS shell
+
 ```ObjectScript
-zpm "load /path/to/jira-searcher"
+zpm "load /path/to/jira-searcher/"
+```
+
+### With Docker
+
+From within the directory you cloned the repo into, launch using docker-compose:
+
+```
+docker-compose up
 ```
 
 ### Configuration
