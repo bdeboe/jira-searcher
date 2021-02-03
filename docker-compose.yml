@@ -6,5 +6,5 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports: 
-      - 1972
-      - 52773
+      - "9091:1972"
+      - "9092:52773"

@@ -15,8 +15,8 @@ Parameter HandleCorsRequest = 1;
 XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 {
 <Routes>
-<Route Url="/settings" Method="GET" Call="GetSettings" />
-<Route Url="/settings" Method="POST" Call="SaveSettings" />
+<Route Url="/settings" Method="GET" Call="GetSettings" Cors="true" />
+<Route Url="/settings" Method="POST" Call="SaveSettings" Cors="true" />
 <Route Url="/suggestion" Method="POST" Call="GetSuggestions" Cors="true" />
 </Routes>
 }
