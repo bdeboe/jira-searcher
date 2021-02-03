@@ -20,7 +20,7 @@ After installing [ZPM](http://github.com/intersystems-community/zpm), run the fo
 zpm "load /path/to/jira-searcher/"
 ```
 
-Then open [http://localhost:52773/jira/web/search.html] in your browser.
+Then open http://localhost:52773/jira/web/search.html in your browser.
 
 ### With Docker
 
@@ -30,9 +30,9 @@ From within the directory you cloned the repo into, launch using docker-compose:
 docker-compose up --build
 ```
 
-Then open [http://localhost:9092/jira/web/search.html] in your browser.
+Then open http://localhost:9092/jira/web/search.html in your browser.
 
-:alert: Something in the networking isn't quite right and connections to the JIRA server aren't working yet.
+:warning: Something in the networking isn't quite right and connections to the JIRA server aren't working yet.
 
 ### Configuration & Usage
 
