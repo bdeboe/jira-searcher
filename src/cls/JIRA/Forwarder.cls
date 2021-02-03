@@ -79,12 +79,11 @@ ClassMethod GetSuggestions() As %Status
 {
     set sc = $$$OK
     try {
-        
         set sc = ..ParseRequest(.json)
         quit:$$$ISERR(sc)
         
         set req = ##class(%Net.HttpRequest).%New()
-        set req.Server = json.jiraServer
+        set req.Server = $piece(json.server,"//",2)
 		set req.Https = 1
 		set req.SSLConfiguration = "ISC.FeatureTracker.SSL.Config"
 

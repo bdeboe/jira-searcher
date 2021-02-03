@@ -61,6 +61,7 @@ function doSearch() {
             case 'created':
             case 'updated':
             case 'contributed':
+            case 'commented':
                 jql += search[field];
                 break;
             case 'text':
