@@ -74,6 +74,70 @@
                 </div>
             </div>
             <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="jira-created">Created</label>
+                    <div class="input-group">
+                        <select class="form-control jira-search-text" id="jira-created">
+                            <option value="" selected="selected">any time</option>
+                            <option value="created > -7d">last week</option>
+                            <option value="created > -1m">last month</option>
+                            <option value="created > -1y">last year</option>
+                        </select>
+                        <div class="input-group-append">
+                            <span class="input-group-text" style="cursor: pointer;"
+                                onclick="$(this).parent().prev().val('').change();">x</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="jira-updated">Last update</label>
+                    <div class="input-group">
+                        <select class="form-control jira-search-text" id="jira-updated">
+                            <option value="" selected="selected">any time</option>
+                            <option value="created > -7d">last week</option>
+                            <option value="created > -1m">last month</option>
+                            <option value="created > -1y">last year</option>
+                        </select>
+                        <div class="input-group-append">
+                            <span class="input-group-text" style="cursor: pointer;"
+                                onclick="$(this).parent().prev().val('').change();">x</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="jira-contributed">I worked on</label>
+                    <div class="input-group">
+                        <select class="form-control jira-search-text" id="jira-contributed">
+                            <option value="" selected="selected">nevermind</option>
+                            <option value="assignee was currentUser() after -7d">last week</option>
+                            <option value="assignee was currentUser() after -1m">last month</option>
+                            <option value="assignee was currentUser() after -1y">last year</option>
+                            <option value="assignee was currentUser()">ever</option>
+                        </select>
+                        <div class="input-group-append">
+                            <span class="input-group-text" style="cursor: pointer;"
+                                onclick="$(this).parent().prev().val('').change();">x</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="jira-commented">I worked or commented on</label>
+                    <div class="input-group">
+                        <select class="form-control jira-search-text" id="jira-commented">
+                            <option value="" selected="selected">nevermind</option>
+                            <option value="(assignee was currentUser() after -7d OR issueFunction in commented('by currentUser() after -7d'))">last week</option>
+                            <option value="(assignee was currentUser() after -1m OR issueFunction in commented('by currentUser() after -1m'))">last month</option>
+                            <option value="(assignee was currentUser() after -1y OR issueFunction in commented('by currentUser() after -1y'))">last year</option>
+                            <option value="(assignee was currentUser() OR issueFunction in commented('by currentUser()'))">ever</option>
+                        </select>
+                        <div class="input-group-append">
+                            <span class="input-group-text" style="cursor: pointer;"
+                                onclick="$(this).parent().prev().val('').change();">x</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="jira-reporter">Reporter</label>
                     <div class="input-group">
@@ -99,38 +163,6 @@
                                 onclick="$('#jira-assignee').val(settings.jiraUser); search.assignee=settings.jiraUser;">me</span>
                             <span class="input-group-text" style="cursor: pointer;"
                                 onclick="$('#jira-assignee').autoComplete('clear').trigger('autocomplete.select');">x</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="jira-created">Created</label>
-                    <div class="input-group">
-                        <select class="form-control jira-search-text" id="jira-created">
-                            <option value="" selected="selected">any time</option>
-                            <option value="created > -7d">last week</option>
-                            <option value="created > -30d">last month</option>
-                            <option value="created > -1y">last year</option>
-                        </select>
-                        <div class="input-group-append">
-                            <span class="input-group-text" style="cursor: pointer;"
-                                onclick="$(this).parent().prev().val('').change();">x</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="jira-updated">Last update</label>
-                    <div class="input-group">
-                        <select class="form-control jira-search-text" id="jira-updated">
-                            <option value="" selected="selected">any time</option>
-                            <option value="created > -7d">last week</option>
-                            <option value="created > -30d">last month</option>
-                            <option value="created > -1y">last year</option>
-                        </select>
-                        <div class="input-group-append">
-                            <span class="input-group-text" style="cursor: pointer;"
-                                onclick="$(this).parent().prev().val('').change();">x</span>
                         </div>
                     </div>
                 </div>
