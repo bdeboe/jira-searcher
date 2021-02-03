@@ -1,9 +1,10 @@
+/// Simple REST forwarder to avoid CORS issues accessing the JIRA server directly
 Class JIRA.Forwarder Extends %CSP.REST
 {
 
-Parameter SETTINGSGLOBAL [ Internal ] = "^JIRA.settings";
+Parameter JIRASERVER = "usjira.iscinternal.com";
 
-Parameter DEBUGGLOBAL [ Internal ] = "^JIRA.debug";
+Parameter SETTINGSGLOBAL [ Internal ] = "^JIRA.settings";
 
 Parameter CHARSET = "utf-8";
 
@@ -16,7 +17,7 @@ XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 <Routes>
 <Route Url="/settings" Method="GET" Call="GetSettings" />
 <Route Url="/settings" Method="POST" Call="SaveSettings" />
-<Route Url="/suggestion" Method="POST" Call="GetSuggestionPost" Cors="true" />
+<Route Url="/suggestion" Method="POST" Call="GetSuggestions" Cors="true" />
 </Routes>
 }
 
@@ -27,7 +28,7 @@ ClassMethod OnPreHTTP() As %Boolean [ ServerOnly = 1 ]
     Do %response.SetHeader("Access-Control-Allow-Methods","GET, PUT, POST, DELETE, OPTIONS")
     Do %response.SetHeader("Access-Control-Max-Age","10000")
     Do %response.SetHeader("Access-Control-Allow-Headers","Content-Type, Authorization, Accept-Language, X-Requested-With")
-    quit 1
+    quit $$$OK
 }
 
 ClassMethod GetOrigins() As %String
@@ -74,7 +75,7 @@ ClassMethod SaveSettings() As %Status
     quit sc
 }
 
-ClassMethod GetSuggestionPost() As %Status
+ClassMethod GetSuggestions() As %Status
 {
     set sc = $$$OK
     try {
@@ -83,7 +84,7 @@ ClassMethod GetSuggestionPost() As %Status
         quit:$$$ISERR(sc)
         
         set req = ##class(%Net.HttpRequest).%New()
-        set req.Server = "usjira.iscinternal.com"
+        set req.Server = json.jiraServer
 		set req.Https = 1
 		set req.SSLConfiguration = "ISC.FeatureTracker.SSL.Config"
 
@@ -99,7 +100,7 @@ ClassMethod GetSuggestionPost() As %Status
     } catch (ex) {
         set sc = ex.AsStatus()
     }
-	quit $$$OK //..%ProcessResult(sc, $g(result))
+	quit $$$OK
 }
 
 }

@@ -1,3 +1,4 @@
+DEFAULTJIRASERVER = "https://usjira.iscinternal.com";
 
 function getRESTEndpoint() {
     return window.location.origin + '/jira/fwd';
@@ -12,7 +13,7 @@ $.ajax(getRESTEndpoint()+'/settings')
         settings = response;
         $("#modal-cfg").modal("show");
 
-        $("#cfg-server").val(settings.jiraServer ? settings.jiraServer : "https://usjira.iscinternal.com");
+        $("#cfg-server").val(settings.jiraServer ? settings.jiraServer : DEFAULTJIRASERVER);
         $("#cfg-user").val(settings.jiraUser);
 
         // pick up most recent search
@@ -114,9 +115,10 @@ $('.auto-select').autoComplete({
                     method: 'POST',
                     contentType: 'application/json; charset=UTF-8',
                     data: JSON.stringify({
+                        server: settings.jiraServer,
+                        auth: settings.auth,
                         field: fieldName,
-                        string: qry,
-                        auth: settings.auth
+                        string: qry
                     })
                 }
             ).done(function(response) {
