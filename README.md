@@ -14,7 +14,7 @@ git clone git@github.com:bdeboe/jira-searcher.git
 
 ### With ZPM
 
-Run the following command from your IRIS shell
+After installing [ZPM](http://github.com/intersystems-community/zpm), run the following command from your IRIS shell:
 
 ```ObjectScript
 zpm "load /path/to/jira-searcher/"
@@ -31,6 +31,8 @@ docker-compose up --build
 ```
 
 Then open [http://localhost:9092/jira/web/search.html] in your browser.
+
+:alert: Something in the networking isn't quite right and connections to the JIRA server aren't working yet.
 
 ### Configuration & Usage
 
