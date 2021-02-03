@@ -20,21 +20,23 @@ Run the following command from your IRIS shell
 zpm "load /path/to/jira-searcher/"
 ```
 
+Then open [http://localhost:52773/jira/web/search.html] in your browser.
+
 ### With Docker
 
 From within the directory you cloned the repo into, launch using docker-compose:
 
+```Shell
+docker-compose up --build
 ```
-docker-compose up
-```
 
-### Configuration
+Then open [http://localhost:9092/jira/web/search.html] in your browser.
 
-You shouldn't have to override any when using this at InterSystems, but the sole reference to our corporate JIRA server is at the top of `search.js`.
+### Configuration & Usage
 
-## Usage
+You shouldn't have to override anything when using this at InterSystems, but the sole reference to our corporate JIRA server is at the top of `search.js`.
 
-Make sure you use the full hostname instead of `localhost` to avoid further CORS trouble.
+Make sure you logged on to the VPN so you have access to the JIRA server
 
 ### Why is it asking for my password?
 

@@ -12,6 +12,7 @@
         Url="/jira/fwd"
         CookiePath="/jira/fwd/"
         UnauthenticatedEnabled="1"
+        MatchRoles=":${dbrole}"
         DispatchClass="JIRA.Forwarder"
        />
       <CSPApplication
