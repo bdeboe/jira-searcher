@@ -2,8 +2,6 @@
 Class JIRA.Forwarder Extends %CSP.REST
 {
 
-Parameter JIRASERVER = "usjira.iscinternal.com";
-
 Parameter SETTINGSGLOBAL [ Internal ] = "^JIRA.settings";
 
 Parameter CHARSET = "utf-8";
