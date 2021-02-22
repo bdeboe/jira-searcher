@@ -65,7 +65,7 @@ function doSearch() {
                 jql += search[field];
                 break;
             case 'text':
-                jql += field + " ~ " + quote(search[field]);
+                jql += field + ' ~ "' + search[field] + '"';
                 break;
             default:
                 jql += field + " = " + quote(search[field]);
