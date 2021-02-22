@@ -81,7 +81,7 @@
                         <select class="form-control jira-search-text" id="jira-created">
                             <option value="" selected="selected">any time</option>
                             <option value="created > -7d">last week</option>
-                            <option value="created > -1m">last month</option>
+                            <option value="created > -30d">last month</option>
                             <option value="created > -365d">last year</option>
                         </select>
                         <div class="input-group-append">
@@ -96,7 +96,7 @@
                         <select class="form-control jira-search-text" id="jira-updated">
                             <option value="" selected="selected">any time</option>
                             <option value="updated > -7d">last week</option>
-                            <option value="updated > -1m">last month</option>
+                            <option value="updated > -30d">last month</option>
                             <option value="updated > -365d">last year</option>
                         </select>
                         <div class="input-group-append">
@@ -111,7 +111,7 @@
                         <select class="form-control jira-search-text" id="jira-contributed">
                             <option value="" selected="selected">nevermind</option>
                             <option value="assignee was currentUser() after -7d">last week</option>
-                            <option value="assignee was currentUser() after -1m">last month</option>
+                            <option value="assignee was currentUser() after -30d">last month</option>
                             <option value="assignee was currentUser() after -365d">last year</option>
                             <option value="assignee was currentUser()">ever</option>
                         </select>
@@ -127,7 +127,7 @@
                         <select class="form-control jira-search-text" id="jira-commented">
                             <option value="" selected="selected">nevermind</option>
                             <option value="(assignee was currentUser() after -7d OR issueFunction in commented('by currentUser() after -7d'))">last week</option>
-                            <option value="(assignee was currentUser() after -1m OR issueFunction in commented('by currentUser() after -1m'))">last month</option>
+                            <option value="(assignee was currentUser() after -30d OR issueFunction in commented('by currentUser() after -30d'))">last month</option>
                             <option value="(assignee was currentUser() after -365d OR issueFunction in commented('by currentUser() after -365d'))">last year</option>
                             <option value="(assignee was currentUser() OR issueFunction in commented('by currentUser()'))">ever</option>
                         </select>
