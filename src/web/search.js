@@ -82,7 +82,7 @@ function doSearch() {
 }
 
 function quote(str) {
-    return str.includes(' ') ? "\""+str+"\"" : str;
+    return (str.includes(' ') && (str.charAt(0)!='"')) ? "\""+str+"\"" : str;
 }
 
 function doClear() {
